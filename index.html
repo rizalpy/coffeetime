@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sangrai – Fresh-roasted coffee at your door</title>
+<meta name="description" content="Choose your bag size and delivery schedule. Coffee roasted the week it ships.">
+<style>
+  :root{
+    --navy:#14233a; --sky:#dfeaf5; --sun:#f4c430; --white:#fff; --mid:#51627a;
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font:17px/1.6 Georgia,"Times New Roman",serif;color:var(--navy);background:var(--sky)}
+  h1,h2,h3,.btn,button,label,summary,nav{font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+
+  header{padding:18px 0}
+  header .wrap{display:flex;justify-content:space-between;align-items:center}
+  .logo{font:700 1.4rem "Trebuchet MS",Arial,sans-serif;text-decoration:none;letter-spacing:-.02em}
+  nav a{margin-left:22px;text-decoration:none;font-size:.95rem}
+  nav a:hover{text-decoration:underline}
+
+  .hero{padding:40px 0 70px}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  h1{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.05;margin:0 0 18px;letter-spacing:-.03em}
+  .lead{max-width:34em;color:var(--mid);margin:0}
+
+  /* Plan builder: the interactive centrepiece */
+  .builder{background:var(--navy);color:var(--white);border-radius:22px;padding:28px}
+  .builder h2{margin:0 0 18px;font-size:1.15rem}
+  fieldset{border:0;padding:0;margin:0 0 20px}
+  legend{font:600 .9rem "Trebuchet MS",Arial,sans-serif;margin-bottom:8px;color:#b9c7da}
+  .choices{display:flex;gap:8px;flex-wrap:wrap}
+  .choices input{position:absolute;opacity:0}
+  .choices label{padding:9px 16px;border:2px solid #3a4d69;border-radius:999px;cursor:pointer;font-size:.95rem}
+  .choices input:checked+label{background:var(--sun);border-color:var(--sun);color:var(--navy);font-weight:700}
+  .choices input:focus-visible+label{outline:3px solid var(--white);outline-offset:2px}
+  .total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #3a4d69;padding-top:18px;margin-bottom:18px}
+  .total strong{font:700 2.4rem "Trebuchet MS",Arial,sans-serif}
+  .total span{color:#b9c7da;font-size:.9rem}
+
+  .btn{display:inline-block;background:var(--sun);color:var(--navy);border:0;border-radius:var(--radius);padding:14px 24px;font-weight:700;font-size:1rem;text-decoration:none;cursor:pointer;width:100%;text-align:center}
+  .btn:hover{background:#ffd84f}
+
+  section{padding:64px 0}
+  h2.title{font-size:clamp(1.6rem,3.5vw,2.2rem);margin:0 0 28px;letter-spacing:-.02em}
+  .features{background:var(--white)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+  .grid h3{margin:0 0 6px;font-size:1.1rem}
+  .grid p{margin:0;color:var(--mid)}
+
+  details{background:var(--white);border-radius:var(--radius);margin-bottom:10px;padding:0 20px}
+  summary{cursor:pointer;padding:16px 0;font-weight:700;list-style:none;display:flex;justify-content:space-between}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:1.4rem;line-height:1}
+  details[open] summary::after{content:"–"}
+  details p{margin:0 0 18px;color:var(--mid)}
+
+  .signup{background:var(--navy);color:var(--white)}
+  .signup p{color:#b9c7da;max-width:32em}
+  form{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+  input[type=email]{flex:1 1 240px;padding:14px 16px;border-radius:var(--radius);border:2px solid transparent;font:inherit;font-size:1rem}
+  form .btn{width:auto;flex:0 0 auto}
+  #msg{margin-top:14px;min-height:1.6em;font-weight:700;color:var(--sun)}
+
+  footer{padding:26px 0;color:var(--mid);font-size:.9rem}
+
+  @media (max-width:800px){
+    .hero .wrap,.grid{grid-template-columns:1fr}
+    nav a:not(:last-child){display:none}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#">Sangrai</a>
+    <nav><a href="#why">Why Sangrai</a><a href="#faq">Questions</a><a href="#join">Join</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Coffee roasted the week it reaches your cup.</h1>
+        <p class="lead">Pick a bag size and how often you want it. We roast in small batches and ship within two days. Pause or cancel whenever you like.</p>
+      </div>
+
+      <div class="builder" aria-labelledby="builder-title">
+        <h2 id="builder-title">Build your plan</h2>
+        <fieldset>
+          <legend>Bag size</legend>
+          <div class="choices">
+            <input type="radio" name="size" id="s250" value="12" checked><label for="s250">250 g</label>
+            <input type="radio" name="size" id="s500" value="22"><label for="s500">500 g</label>
+            <input type="radio" name="size" id="s1000" value="40"><label for="s1000">1 kg</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Delivery</legend>
+          <div class="choices">
+            <input type="radio" name="freq" id="f1" value="1" checked><label for="f1">Every week</label>
+            <input type="radio" name="freq" id="f2" value="0.5"><label for="f2">Every 2 weeks</label>
+            <input type="radio" name="freq" id="f4" value="0.25"><label for="f4">Monthly</label>
+          </div>
+        </fieldset>
+        <div class="total">
+          <span>Per delivery</span><strong id="price">$12</strong>
+        </div>
+        <a class="btn" href="#join">Start this plan</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="features" id="why">
+    <div class="wrap">
+      <h2 class="title">Why people stay with us</h2>
+      <div class="grid">
+        <div><h3>Roasted to order</h3><p>Nothing sits on a shelf. Your beans are roasted after you order.</p></div>
+        <div><h3>Free shipping</h3><p>Every plan ships free, with no minimum order.</p></div>
+        <div><h3>Change anytime</h3><p>Skip a delivery, switch size, or cancel in two clicks.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2 class="title">Questions</h2>
+      <details><summary>How fresh is the coffee?</summary><p>Beans are roasted in the 48 hours before they ship, so they arrive at their best.</p></details>
+      <details><summary>Can I skip a delivery?</summary><p>Yes. Skip or pause from your account any time before the day your bag is roasted.</p></details>
+      <details><summary>Do you sell ground coffee?</summary><p>We ship whole beans only, because ground coffee loses its flavor within days.</p></details>
+    </div>
+  </section>
+
+  <section class="signup" id="join">
+    <div class="wrap">
+      <h2 class="title">Get your first bag</h2>
+      <p>Enter your email and we will send your plan details and a checkout link.</p>
+      <form id="form">
+        <input type="email" id="email" placeholder="you@example.com" aria-label="Email address" required>
+        <button class="btn" type="submit">Send my plan</button>
+      </form>
+      <div id="msg" role="status" aria-live="polite"></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© 2026 Sangrai Coffee. Sample page.</div></footer>
+
+<script>
+  // Live price: bag price shown per delivery
+  const price = document.getElementById('price');
+  const sizes = document.querySelectorAll('input[name=size]');
+  function update(){
+    const s = document.querySelector('input[name=size]:checked').value;
+    price.textContent = '$' + s;
+  }
+  sizes.forEach(i => i.addEventListener('change', update));
+
+  // Signup confirmation (demo only: does not send data anywhere)
+  document.getElementById('form').addEventListener('submit', e => {
+    e.preventDefault();
+    const size = document.querySelector('input[name=size]:checked + label').textContent;
+    const freq = document.querySelector('input[name=freq]:checked + label').textContent.toLowerCase();
+    document.getElementById('msg').textContent =
+      'Thanks! Your ' + size + ' bag, delivered ' + freq + ', is saved.';
+    e.target.reset();
+  });
+</script>
+</body>
+</html>
